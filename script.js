@@ -177,4 +177,4 @@ window.onclick = (e) => {
     } 
 }
 
-displayRecipes();
+displayRecipes(); 
