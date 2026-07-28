@@ -22,16 +22,89 @@
             <button class="category-btn" onclick="filterByCategory('soup')">🥣 Супи</button>
             <button class="category-btn" onclick="filterByCategory('snack')">🥟 Закуски</button>
         </div>
+
+        <!-- Нова кнопка для відкриття форми додавання рецепту -->
+        <button id="openFormBtn" onclick="toggleAddRecipeForm(true)">➕ Додати свій рецепт</button>
     </header>
 
     <main class="recipe-grid" id="recipeGrid">
         <!-- Рецепти завантажуються динамічно -->
     </main>
 
+    <!-- Модальне вікно перегляду рецепту -->
     <div id="recipeModal" class="modal" onclick="closeRecipeModal(event)">
         <div class="modal-content">
             <span class="close-btn" onclick="closeRecipeModal(event)">&times;</span>
             <div id="modalDetails"></div>
+        </div>
+    </div>
+
+    <!-- Нове модальне вікно для додавання власного рецепту -->
+    <div id="addRecipeModal" class="modal" onclick="closeAddRecipeModal(event)">
+        <div class="modal-content form-modal">
+            <span class="close-btn" onclick="toggleAddRecipeForm(false)">&times;</span>
+            <h2 style="color: #990000; text-align: center; margin-top: 0;">➕ Новий рецепт</h2>
+            
+            <form id="newRecipeForm" onsubmit="saveCustomRecipe(event)">
+                <div class="form-group">
+                    <label for="recipeTitle">Назва страви:</label>
+                    <input type="text" id="recipeTitle" required placeholder="Наприклад: Свинина в кисло-солодкому соусі">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="recipeCategory">Категорія:</label>
+                        <select id="recipeCategory" required>
+                            <option value="main">🥩 Гаряче</option>
+                            <option value="soup">🥣 Супи</option>
+                            <option value="snack">🥟 Закуска</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipeTime">Час (хв):</label>
+                        <input type="number" id="recipeTime" required min="1" placeholder="30">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipeEmoji">Оберіть емодзі:</label>
+                    <select id="recipeEmoji">
+                        <option value="🥢">🥢 Палички</option>
+                        <option value="🥩">🥩 М'ясо</option>
+                        <option value="🐔">🐔 Курка</option>
+                        <option value="🥟">🥟 Димсам</option>
+                        <option value="🥣">🥣 Суп</option>
+                        <option value="🍛">🍛 Рис</option>
+                        <option value="🍜">🍜 Локшина</option>
+                        <option value="🥒">🥒 Огірок</option>
+                        <option value="🌶️">🌶️ Чилі</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipeDesc">Короткий опис:</label>
+                    <input type="text" id="recipeDesc" required placeholder="Коротко опишіть страву...">
+                </div>
+
+                <div class="form-group">
+                    <label>Інгредієнти (на 1 порцію):</label>
+                    <div id="dynamicIngredientsContainer">
+                        <div class="ingredient-row">
+                            <input type="text" placeholder="Назва (напр., Курка)" required class="ing-name">
+                            <input type="number" placeholder="К-ть" required class="ing-amount" min="1">
+                            <input type="text" placeholder="Один. (г, мл, шт)" required class="ing-unit">
+                        </div>
+                    </div>
+                    <button type="button" id="addIngFieldBtn" onclick="addIngredientField()">➕ Ще інгредієнт</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="recipeInstructions">Спосіб приготування:</label>
+                    <textarea id="recipeInstructions" rows="4" required placeholder="Крок 1. Наріжте...&#10;Крок 2. Обсмажте..."></textarea>
+                </div>
+
+                <button type="submit" id="submitRecipeBtn">Зберегти рецепт 🧧</button>
+            </form>
         </div>
     </div>
     
