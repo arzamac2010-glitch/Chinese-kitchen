@@ -45,24 +45,6 @@ header p {
     margin-top: 5px;
 }
 
-#openFormBtn {
-    margin-top: 20px;
-    padding: 10px 25px;
-    background-color: transparent;
-    border: 2px solid white;
-    border-radius: 25px;
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-#openFormBtn:hover {
-    background-color: white;
-    color: #cc0000;
-}
-
 .search-container {
     margin-top: 25px;
     display: flex;
@@ -104,10 +86,11 @@ header p {
     transition: all 0.2s ease;
 }
 
+/* НОВІ ЯСКРАВІ КНОПКИ КАТЕГОРІЙ */
 .categories-container {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 12px;
     margin-top: 25px;
     flex-wrap: wrap;
     position: relative;
@@ -116,22 +99,36 @@ header p {
 }
 
 .category-btn {
-    padding: 10px 18px;
-    background-color: rgba(0, 0, 0, 0.25);
-    border: 2px solid var(--accent-color);
-    color: white;
-    border-radius: 25px;
+    padding: 12px 24px;
+    background-color: #ffffff;
+    border: 3px solid var(--accent-color);
+    color: #990000;
+    border-radius: 30px;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 14px;
-    transition: all 0.3s ease;
+    font-weight: 900;
+    font-size: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.category-btn:hover {
+    background: var(--accent-gradient);
+    color: #000000;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 204, 0, 0.5);
 }
 
 .category-btn.active {
     background: var(--accent-gradient);
-    color: #333;
+    color: #000000;
+    border-color: #ffffff;
+    box-shadow: 0 0 20px var(--accent-color);
+    transform: scale(1.05);
 }
 
+/* СІТКА ТА КАРТКИ */
 .recipe-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -205,47 +202,7 @@ header p {
 
 .fav-icon.active { color: var(--accent-color); }
 
-.portions-calculator {
-    background: #fdfaf5;
-    border: 1px solid #ffe3cb;
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.portions-calculator label {
-    font-weight: bold;
-    color: #555;
-}
-
-.portions-select {
-    padding: 6px 12px;
-    font-size: 15px;
-    border: 2px solid var(--primary-color);
-    border-radius: 6px;
-    outline: none;
-    cursor: pointer;
-    background: white;
-    font-weight: bold;
-}
-
-.ingredients-list {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 10px 0;
-}
-
-.ingredients-list li {
-    padding: 6px 0;
-    border-bottom: 1px dashed #eee;
-    color: #444;
-}
-
-/* Модальне вікно */
+/* МОДАЛЬНЕ ВІКНО ТА ТАЙМЕР */
 .modal {
     display: none;
     position: fixed;
@@ -299,108 +256,13 @@ header p {
 .timer-controls button:hover { background: #cc0000; color: white; }
 .countdown-display { font-size: 24px; font-weight: bold; }
 
-/* 🖋️ Стилізація елементів форми додавання рецепту */
-.form-modal {
-    border-top: 8px solid #cc0000;
-}
-
-.form-group {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.form-row {
-    display: flex;
-    gap: 15px;
-}
-
-.form-row .form-group {
-    flex: 1;
-}
-
-.form-group label {
-    font-weight: bold;
-    color: #444;
-    font-size: 14px;
-}
-
-.form-group input, .form-group select, .form-group textarea {
-    padding: 10px 12px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    font-size: 15px;
-    outline: none;
-    font-family: inherit;
-    transition: border-color 0.2s;
-}
-
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    border-color: #cc0000;
-}
-
-.ingredient-row {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 8px;
-}
-
-.ingredient-row input.ing-name { flex: 2; }
-.ingredient-row input.ing-amount { flex: 0.8; }
-.ingredient-row input.ing-unit { flex: 0.8; }
-
-#addIngFieldBtn {
-    align-self: flex-start;
-    padding: 6px 12px;
-    background: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 13px;
-}
-
-#addIngFieldBtn:hover {
-    background: #e2e2e2;
-}
-
-#submitRecipeBtn {
-    width: 100%;
-    padding: 12px;
-    background: var(--primary-gradient);
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(204,0,0,0.2);
-    margin-top: 15px;
-    transition: transform 0.2s;
-}
-
-#submitRecipeBtn:hover {
-    transform: translateY(-1px);
-}
-
-/* 📱 АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ ПРИСТРОЇВ */
 @media (max-width: 600px) {
     header h1 { font-size: 1.8rem; }
     header p { font-size: 0.9rem; }
     header { padding: 1.5rem 0.5rem; }
-    
     .search-container { flex-direction: column; gap: 8px; width: 90%; margin: 20px auto 0 auto; }
-    #searchInput { max-width: 100%; }
     #favFilterBtn { width: 100%; padding: 10px; }
-    
-    .category-btn { padding: 8px 14px; font-size: 13px; }
+    .category-btn { padding: 10px 16px; font-size: 13px; width: 45%; text-align: center; }
     .recipe-grid { grid-template-columns: 1fr; padding: 15px; gap: 20px; }
-    
     .modal-content { margin: 10% auto; padding: 20px; width: 85%; max-height: 80vh; }
-    .portions-calculator { flex-direction: column; align-items: flex-start; gap: 6px; }
-    .portions-select { width: 100%; }
-    
-    .form-row { flex-direction: column; gap: 0; }
-    .ingredient-row { flex-direction: column; gap: 4px; border-bottom: 1px solid #eee; padding-bottom: 8px; }
 }
