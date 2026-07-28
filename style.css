@@ -1,255 +1,350 @@
 :root {
-    --primary-color: #cc0000;
+    --primary-gradient: linear-gradient(135deg, #cc0000 0%, #990000 100%);
     --accent-color: #ffcc00;
-    --bg-color: #fcf8f2;
+    --accent-gradient: linear-gradient(135deg, #ffe066 0%, #ffcc00 100%);
+    --bg-color: #fff9f2;
     --card-bg: #ffffff;
-    --text-color: #333;
+    --text-color: #2c2a29;
+    
+    --tag-main: #e63946;
+    --tag-soup: #457b9d;
+    --tag-snack: #f4a261;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     margin: 0; 
     padding: 0;
+    background-image: radial-gradient(rgba(204, 0, 0, 0.02) 1px, transparent 0);
+    background-size: 24px 24px;
 }
 
 header {
-    background-color: var(--primary-color);
+    background: var(--primary-gradient);
     color: white;
     text-align: center;
-    padding: 2rem 1rem;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 3rem 1rem;
+    box-shadow: 0 4px 15px rgba(153, 0, 0, 0.25);
+    border-bottom: 5px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
 }
+
+header::before, header::after {
+    content: "";
+    position: absolute;
+    border: 3px solid rgba(255, 204, 0, 0.15);
+    border-radius: 50%;
+}
+header::before { width: 150px; height: 150px; top: -50px; left: -50px; }
+header::after { width: 250px; height: 250px; bottom: -100px; right: -50px; }
 
 header h1 { 
     margin: 0; 
-    font-size: 2.5rem; 
+    font-size: 2.8rem; 
     color: var(--accent-color); 
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #ffe699;
+    margin-top: 5px;
 }
 
 .search-container {
-    margin-top: 20px;
+    margin-top: 25px;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
 }
 
 #searchInput {
-    padding: 10px 15px;
+    padding: 12px 20px;
     width: 100%;
     max-width: 400px;
-    border: 2px solid var(--accent-color);
+    border: 3px solid var(--accent-color);
     border-radius: 25px;
     font-size: 16px;
     outline: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+    box-shadow: 0 0 15px var(--accent-color);
+    transform: scale(1.02);
 }
 
 #favFilterBtn {
-    padding: 10px 20px;
-    background-color: var(--accent-color);
+    padding: 12px 25px;
+    background: var(--accent-gradient);
     border: none;
     border-radius: 25px;
-    color: #333;
+    color: #4a0000;
     font-weight: bold;
+    font-size: 15px;
     cursor: pointer;
-    transition: 0.2s;
-}
-
-#favFilterBtn.active {
-    background-color: #fff;
-    color: var(--primary-color);
-    box-shadow: 0 0 10px rgba(255,255,255,0.5);
-}
-
-/* Стилі для панелі категорій страв */
-.categories-container {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.category-btn {
-    padding: 8px 18px;
-    background-color: rgba(255, 255, 255, 0.15);
-    border: 2px solid var(--accent-color);
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     transition: all 0.2s ease;
 }
 
+#favFilterBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255,204,0,0.4);
+}
+
+#favFilterBtn.active {
+    background: #fff;
+    color: #cc0000;
+    box-shadow: 0 0 15px rgba(255,255,255,0.8);
+}
+
+.categories-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+.category-btn {
+    padding: 10px 22px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 2px solid var(--accent-color);
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
 .category-btn:hover {
-    background-color: var(--accent-color);
+    background: var(--accent-gradient);
     color: #333;
+    transform: translateY(-2px);
 }
 
 .category-btn.active {
-    background-color: var(--accent-color);
+    background: var(--accent-gradient);
     color: #333;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(255,204,0,0.3);
+    border-color: #fff;
 }
 
-/* Адаптивна сітка карт-рецептів */
 .recipe-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    padding: 30px 20px;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 30px;
+    padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .recipe-card {
     background: var(--card-bg);
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(204, 0, 0, 0.05);
 }
 
 .recipe-card:hover { 
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 25px rgba(204, 0, 0, 0.12);
+    border-color: var(--accent-color);
+}
+
+.recipe-emoji-badge {
+    height: 180px;
+    background: linear-gradient(180deg, #fff5eb 0%, #ffe3cb 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    position: relative;
+    transition: background 0.3s;
+}
+
+.recipe-card:hover .recipe-emoji-badge {
+    background: linear-gradient(180deg, #ffeacc 0%, #ffd2a1 100%);
+}
+
+.recipe-tag {
+    position: absolute;
+    bottom: 12px;
+    left: 15px;
+    padding: 4px 12px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 20px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .recipe-info { 
-    padding: 20px; 
+    padding: 22px; 
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     justify-content: space-between;
+    background: linear-gradient(180deg, #ffffff 0%, #fffbf7 100%);
 }
 
 .recipe-info h3 { 
     margin: 0 0 10px 0; 
-    color: var(--primary-color); 
-    padding-right: 30px; 
-    font-size: 1.3rem;
+    color: #990000; 
+    padding-right: 35px; 
+    font-size: 1.4rem;
 }
 
 .recipe-info p {
     margin: 0 0 15px 0;
-    color: #555;
+    color: #5a5552;
     font-size: 0.95rem;
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 .fav-icon {
     position: absolute;
     top: 15px; 
     right: 15px;
-    font-size: 26px;
+    font-size: 32px;
     cursor: pointer;
-    color: rgba(255, 255, 255, 0.7);
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-    transition: color 0.2s, transform 0.2s;
+    color: rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
     z-index: 10;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.6);
 }
 
 .fav-icon:hover {
-    transform: scale(1.2);
+    transform: scale(1.25);
 }
 
 .fav-icon.active { 
     color: var(--accent-color); 
+    text-shadow: 0 2px 8px rgba(212, 163, 0, 0.6);
+    -webkit-text-stroke: unset;
 }
 
-/* Модальне вікно рецепту */
 .modal {
     display: none;
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(44, 42, 41, 0.8);
+    backdrop-filter: blur(4px);
     z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
 }
 
 .modal-content {
     background-color: white;
-    margin: 5% auto;
-    padding: 30px;
-    border-radius: 12px;
+    margin: 4% auto;
+    padding: 35px;
+    border-radius: 20px;
     width: 90%;
     max-width: 600px;
     position: relative;
-    max-height: 80vh;
+    max-height: 82vh;
     overflow-y: auto;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    border-top: 8px solid #cc0000;
 }
 
 .close-btn {
     position: absolute;
     top: 15px; right: 20px;
-    font-size: 32px; 
+    font-size: 38px; 
     cursor: pointer;
-    color: #aaa;
+    color: #bbb;
     z-index: 11;
+    line-height: 1;
+    transition: color 0.2s;
 }
 
 .close-btn:hover { 
     color: var(--primary-color); 
 }
 
-/* Елементи дизайну вбудованого таймера */
 .timer-box {
-    background: #fdf2f2;
-    border: 2px dashed var(--primary-color);
-    border-radius: 8px;
-    padding: 15px;
-    margin: 15px 0 20px 0;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffebeb 100%);
+    border: 2px dashed #e63946;
+    border-radius: 12px;
+    padding: 18px;
+    margin: 20px 0;
     text-align: center;
+    box-shadow: inset 0 2px 5px rgba(230,57,70,0.05);
 }
 
 .timer-box h3 { 
-    margin: 0 0 10px 0; 
-    color: var(--primary-color); 
-    font-size: 16px; 
+    margin: 0 0 12px 0; 
+    color: #cc0000; 
+    font-size: 18px;
+    letter-spacing: 0.5px;
 }
 
 .timer-controls { 
     display: flex; 
-    gap: 8px; 
+    gap: 10px; 
     justify-content: center; 
-    margin-bottom: 10px; 
+    margin-bottom: 12px; 
 }
 
 .timer-controls button {
-    padding: 8px 16px;
-    border: 2px solid var(--primary-color);
+    padding: 10px 20px;
+    border: 2px solid #cc0000;
     background: white;
-    color: var(--primary-color);
-    border-radius: 6px;
+    color: #cc0000;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.2s;
+    font-size: 14px;
+    transition: all 0.2s;
 }
 
 .timer-controls button:hover { 
-    background: var(--primary-color); 
-    color: white; 
+    background: #cc0000; 
+    color: white;
+    transform: translateY(-1px);
 }
 
 .timer-controls button.stop-btn { 
-    border-color: #666; 
-    color: #666; 
+    border-color: #555; 
+    color: #555; 
 }
 
 .timer-controls button.stop-btn:hover { 
-    background: #666; 
+    background: #555; 
     color: white; 
 }
 
 .countdown-display { 
-    font-size: 20px; 
+    font-size: 28px; 
     font-weight: bold; 
-    color: #222; 
-    margin-top: 5px; 
+    color: #111; 
+    background: #fff;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    letter-spacing: 1px;
 }
