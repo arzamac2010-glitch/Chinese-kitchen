@@ -1,180 +1,209 @@
+// 1. Розширена база даних: 10 рецептів з категоріями
 const recipes = [
     {
         id: 1,
-        title: "Курка Гунбао",
-        description: "Класична гостра страва з кубиками курки, арахісом та перцем чилі.",
-        ingredients: ["Куряче філе — 400г", "Смажений арахіс — 50г", "Перець чилі — 2 шт.", "Зелена цибуля", "Соєвий соус — 2 ст.л.", "Часник та імбир"],
-        steps: "1. Наріжте курку кубиками та замаринуйте в ложці соєвого соусу.\n2. Обсмажте на розігрітій пательні (вок) часник, імбир та чилі.\n3. Додайте курку, смажте до готовності.\n4. Всипте арахіс, зелену цибулю та залишками соусу. Смажте ще 1 хвилину."
+        title: "🦆 Качка по-пекінськи",
+        category: "main",
+        image: "https://unsplash.com",
+        ingredients: "качка, маринад з п'яти спецій, мед, соєвий соус, імбир, часник, рисове вино",
+        description: "Легендарна страва китайської кухні з тонкою хрусткою скоринкою та ніжним м'ясом.",
+        instructions: "Очистіть качку, ошпарте окропом, натріть спеціями та сушіть 24 години. Потім запікайте при високій температурі, змащуючи медовим сиропом.",
+        time: 120
     },
     {
         id: 2,
-        title: "Свинина в кисло-солодкому соусі",
-        description: "Традиційна страва кантонської кухні (Гулаожоу), популярна в усьому світі.",
-        ingredients: ["Свинина — 400г", "Болгарський перець — 1 шт.", "Ананаси консервовані — 100г", "Томатна паста — 2 ст.л.", "Оцет — 1 ст.л.", "Цукор — 2 ст.л.", "Крохмаль"],
-        steps: "1. Наріжте м'ясо кубиками, обваляйте в крохмалі та обсмажте до золотої скоринки.\n2. Окремо обсмажте перець та ананаси.\n3. Змішайте томатна пасту, оцет і цукор для соусу.\n4. З'єднайте все на пательні та тушкуйте 3 хвилини до загустіння соусу."
+        title: "🐔 Курка Гунбао",
+        category: "main",
+        image: "https://unsplash.com",
+        ingredients: "куряче філе, арахіс, гострий перець чилі, сичуаньський перець, зелена цибуля, імбир",
+        description: "Класична гостра страва провінції Сичуань із соковитим м'ясом та хрустким горіхом.",
+        instructions: "Наріжте курку кубиками та замаринуйте. Обсмажте на великому вогні в азійському воці арахіс, перець та імбир, додайте курку та соус.",
+        time: 25
     },
     {
         id: 3,
-        title: "Мапо Тофу",
-        description: "Легендарна та надзвичайно гостра страва з провінції Сичуань.",
-        ingredients: ["Тофу — 400г", "М'ясний фарш (свинина або яловичина) — 150г", "Гостра паста з бобів (Тобіндзян) — 2 ст.л.", "Часник — 3 зубчики", "Сичуаньський перець", "Зелена цибуля"],
-        steps: "1. Наріжте тофу кубиками і проваріть у підсоленій воді 2 хвилини.\n2. Обсмажте фарш до золотистого кольору, додайте подрібнений часник та пасту з бобів.\n3. Додайте трохи води або бульйону, викладіть тофу і тушкуйте на повільному вогні 5 хвилин.\n4. Посипте меленим сичуаньським перцем та зеленою цибулею перед подачею."
+        title: "🥟 Димсами зі свининою",
+        category: "snack",
+        image: "https://unsplash.com",
+        ingredients: "борошно, вода, свинячий фарш, пекінська капуста, соєвий соус, кунжутна олія",
+        description: "Традиційні китайські пельмені, які готуються на парі у бамбукових кошиках.",
+        instructions: "Замісіть еластичне тісто. Змішайте фарш із дрібно нарізаною капустою та спеціями. Зліпіть мініатюрні мішечки та готуйте на парі 10-12 хвилин.",
+        time: 40
     },
     {
         id: 4,
-        title: "Смажений рис по-янчжоуськи",
-        description: "Універсальна, ситна та дуже швидка у приготуванні китайська страва.",
-        ingredients: ["Готовий холодний рис — 3 склянки", "Яйця — 2 шт.", "Шинка або креветки — 100г", "Зелений горошок — 50г", "Соєвий соус — 1 ст.л.", "Кунжутна олія"],
-        steps: "1. Розігрійте вок, збийте яйця і швидко обсмажте їх, постійно помішуючи, потім перекладіть на тарілку.\n2. Обсмажте нарізану шинку (або креветки) з горошком протягом 2 хвилин.\n3. Додайте рис, ретельно розминаючи грудки. Смажте 3-4 хвилини.\n4. Поверніть яйця у вок, додайте соєвий соус та кунжутну олію, перемішайте та прогрійте 1 хвилину."
+        title: "🍛 Смажений рис із овочами",
+        category: "main",
+        image: "https://unsplash.com",
+        ingredients: "відварений рис, яйця, зелений горошок, кукурудза, морква, соєвий соус, зелена цибуля",
+        description: "Проста, швидка та неймовірно популярна страва щоденної китайської кухні.",
+        instructions: "Використовуйте вчорашній сухий рис. Швидко обсмажте яйця, потім додайте овочі та рис. Постійно помішуйте, додавши соєвий соус в кінці.",
+        time: 15
     },
     {
         id: 5,
-        title: "Пекінська капуста у воці",
-        description: "Легкий та хрусткий традиційний гарнір з легким часниковим ароматом.",
-        ingredients: ["Пекінська капуста — 1 качан", "Часник — 4 зубчики", "Сушений чилі — 2 шт.", "Соєвий соус — 1.5 ст.л.", "Оцет рисовий — 1 ч.л."],
-        steps: "1. Наріжте білу частину капусти великими шматочками, а зелену — ширше.\n2. Розігрійте олію, киньте нарізаний пластинками часник та чилі на 10 секунд.\n3. Спочатку додайте білу (тверду) частину капусти, смажте 2 хвилини на сильному вогні.\n4. Додайте зелене листя, соєвий соус та оцет. Швидко перемішуйте ще 1 хвилину, щоб капуста залишилася хрусткою."
+        title: "🔥 Мапо Тофу",
+        category: "main",
+        image: "https://unsplash.com",
+        ingredients: "тофу, свинячий фарш, паста доубань, перець чилі, сичуаньський перець, часник",
+        description: "Знаменитий гострий тофу з фаршем у насиченому чилі-соусі.",
+        instructions: "Наріжте тофу кубиками. Обсмажте фарш із часником, імбиром та пастою доубань. Додайте бульйон, тофу, тушкуйте 5 хвилин і посипте сичуаньським перцем.",
+        time: 20
+    },
+    {
+        id: 6,
+        title: "🥣 Кисло-гострий суп",
+        category: "soup",
+        image: "https://unsplash.com",
+        ingredients: "курячий бульйон, гриби шиїтаке, тофу, пагони бамбука, яйце, чорний рисовий оцет, білий перець",
+        description: "Зігріваючий суп із дивовижним балансом кислинки оцту та гостроти білого перцю.",
+        instructions: "Доведіть бульйон до кипіння, додайте нарізані гриби, тофу та бамбук. Влийте рисовий оцет і соєвий соус. Загустіть крохмалем, повільно влийте збите яйце тонкою цівкою.",
+        time: 30
+    },
+    {
+        id: 7,
+        title: "🫔 Хрусткі спрінг-роли",
+        category: "snack",
+        image: "https://unsplash.com",
+        ingredients: "тісто для спрінг-ролів, свинячий фарш, пекінська капуста, морква, скляна локшина фунчоза",
+        description: "Хрусткі обсмажені рулетики з соковитою м'ясною чи овочевою начинкою.",
+        instructions: "Тонко наріжте овочі, швидко обсмажте з фаршем. Загорніть начинку в тонкі листи тіста. Обсмажуйте у великій кількості олії до золотистої скоринки.",
+        time: 35
+    },
+    {
+        id: 8,
+        title: "🍜 Локшина Дань-Дань",
+        category: "main",
+        image: "https://unsplash.com",
+        ingredients: "пшенична локшина, свинячий фарш, паста з кунжуту (або арахісова), олія чилі, сичуаньський перець",
+        description: "Гостра сичуаньська локшина із насиченим горіхово-м'ясним соусом.",
+        instructions: "Обсмажте фарш зі спеціями до хрускоту. На дно тарілки викладіть соус із кунжутної пасти та олії чилі. Зваріть локшину, викладіть у тарілку, зверху додайте фарш і зелень.",
+        time: 25
+    },
+    {
+        id: 9,
+        title: "🍅 Суп з томатами та яйцем",
+        category: "soup",
+        image: "https://unsplash.com",
+        ingredients: "стиглі томати, яйця, курячий бульйон або вода, зелена цибуля, кунжутна олія",
+        description: "Надзвичайно популярний, легкий у приготуванні та ніжний домашній китайський суп.",
+        instructions: "Наріжте томати часточками та злегка обсмажте. Додайте гарячу воду або бульйон, варіть 5 хвилин. Зменшіть вогонь, влийте збиті яйця круговими рухами, посипте цибулею.",
+        time: 15
+    },
+    {
+        id: 10,
+        title: "🥒 Биті огірки по-азійськи",
+        category: "snack",
+        image: "https://unsplash.com",
+        ingredients: "свіжі огірки, часник, соєвий соус, чорний рисовий оцет, олія чилі, кінза, арахіс",
+        description: "Освіжаюча та пікантна холодна закуска, яка готується за лічені хвилини.",
+        instructions: "Огірки злегка відбийте качалкою або плоскою стороною ножа, щоб вони тріснули, потім наріжте шматочками. Посоліть, залиште на 5 хв, злийте сік. Заправте соусом, часником та олією.",
+        time: 10
     }
 ];
 
-let favorites = JSON.parse(localStorage.getItem('chinese_favs')) || [];
+// 2. Змінні стану
+let favorites = JSON.parse(localStorage.getItem('china_favs')) || [];
 let showOnlyFavorites = false;
-let timerInterval;
+let currentCategory = 'all'; // Поточна категорія
+let currentTimerInterval = null;
 
-const grid = document.getElementById('recipeGrid');
-const modal = document.getElementById('recipeModal');
-const modalDetails = document.getElementById('modalDetails');
-const closeModal = document.getElementById('closeModal');
+const recipeGrid = document.getElementById('recipeGrid');
 const searchInput = document.getElementById('searchInput');
 const favFilterBtn = document.getElementById('favFilterBtn');
+const recipeModal = document.getElementById('recipeModal');
+const modalDetails = document.getElementById('modalDetails');
+const closeModal = document.getElementById('closeModal');
 
-function displayRecipes() {
+// 3. Функція відображення карток
+function renderRecipes() {
+    recipeGrid.innerHTML = '';
     const query = searchInput.value.toLowerCase();
-    
+
     const filtered = recipes.filter(recipe => {
         const matchesSearch = recipe.title.toLowerCase().includes(query) || 
-                              recipe.ingredients.some(ing => ing.toLowerCase().includes(query));
-        const matchesFavorite = !showOnlyFavorites || favorites.includes(recipe.id);
+                              recipe.ingredients.toLowerCase().includes(query);
+        const matchesFav = !showOnlyFavorites || favorites.includes(recipe.id);
+        const matchesCategory = currentCategory === 'all' || recipe.category === currentCategory;
         
-        return matchesSearch && matchesFavorite;
+        return matchesSearch && matchesFav && matchesCategory;
     });
 
-    if(filtered.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #666;">Нічого не знайдено 😕</p>`;
+    if (filtered.length === 0) {
+        recipeGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #888;">Нічого не знайдено за вашим запитом.</p>`;
         return;
     }
 
-    grid.innerHTML = filtered.map(recipe => {
-        const isFav = favorites.includes(recipe.id) ? 'active' : '';
-        return `
-            <div class="recipe-card" onclick="openRecipe(${recipe.id}, event)">
-                <div class="recipe-info">
-                    <span class="fav-icon ${isFav}" onclick="toggleFavorite(${recipe.id}, event)">⭐</span>
-                    <h3>${recipe.title}</h3>
-                    <p>${recipe.description}</p>
-                </div>
+    filtered.forEach(recipe => {
+        const isFav = favorites.includes(recipe.id);
+        const card = document.createElement('div');
+        card.className = 'recipe-card';
+        
+        card.onclick = (e) => {
+            if (!e.target.classList.contains('fav-icon')) {
+                openRecipeModal(recipe);
+            }
+        };
+
+        card.innerHTML = `
+            <span class="fav-icon ${isFav ? 'active' : ''}" onclick="toggleFavorite(event, ${recipe.id})">★</span>
+            <img src="${recipe.image}" alt="${recipe.title}" style="width: 100%; height: 180px; object-fit: cover;">
+            <div class="recipe-info">
+                <h3>${recipe.title}</h3>
+                <p>${recipe.description}</p>
+                <small style="color: #666; display: block; margin-top: 10px;">🕒 Час: ${recipe.time} хв.</small>
             </div>
         `;
-    }).join('');
+        recipeGrid.appendChild(card);
+    });
 }
 
-function toggleFavorite(id, event) {
+// 4. Функція фільтрації за категоріями
+window.filterByCategory = function(category) {
+    currentCategory = category;
+    
+    // Оновлення активного класу для кнопок
+    const buttons = document.querySelectorAll('.category-btn');
+    buttons.forEach(btn => {
+        const onclickAttr = btn.getAttribute('onclick');
+        if (onclickAttr && onclickAttr.includes(`'${category}'`)) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    renderRecipes();
+};
+
+// 5. Керування списком "Обране"
+window.toggleFavorite = function(event, id) {
     event.stopPropagation();
-    
-    if (favorites.includes(id)) {
-        favorites = favorites.filter(favId => favId !== id);
-    } else {
+    const index = favorites.indexOf(id);
+    if (index === -1) {
         favorites.push(id);
+    } else {
+        favorites.splice(index, 1);
     }
-    
-    localStorage.setItem('chinese_favs', JSON.stringify(favorites));
-    displayRecipes();
-}
+    localStorage.setItem('china_favs', JSON.stringify(favorites));
+    renderRecipes();
+};
 
-function toggleFavoriteFilter() {
+window.toggleFavoriteFilter = function() {
     showOnlyFavorites = !showOnlyFavorites;
     favFilterBtn.classList.toggle('active', showOnlyFavorites);
-    displayRecipes();
-}
+    favFilterBtn.innerText = showOnlyFavorites ? "⭐ Показати всі" : "⭐ Показати обране";
+    renderRecipes();
+};
 
-function openRecipe(id, event) {
-    const recipe = recipes.find(r => r.id === id);
-    if (!recipe) return;
+// 6. Події для живого пошуку
+searchInput.addEventListener('input', renderRecipes);
 
-    clearInterval(timerInterval);
-
+// 7. Робота з модальним вікном та Таймером
+function openRecipeModal(recipe) {
+    clearInterval(currentTimerInterval);
+    
     modalDetails.innerHTML = `
         <h2>${recipe.title}</h2>
+        <img src="${recipe.image}" alt="${recipe.title}" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">
         
-        <div class="timer-box">
-            <h3>⏱️ Кухонний таймер</h3>
-            <div class="timer-controls">
-                <button onclick="startKitchenTimer(1)">1 хв</button>
-                <button onclick="startKitchenTimer(3)">3 хв</button>
-                <button onclick="startKitchenTimer(5)">5 хв</button>
-                <button onclick="stopKitchenTimer()" class="stop-btn">Скинути</button>
-            </div>
-            <div id="countdownDisplay" class="countdown-display">Таймер не запущено</div>
-        </div>
-
-        <p><strong>Інгредієнти:</strong></p>
-        <ul>${recipe.ingredients.map(ing => `<li>${ing}</li>`).join('')}</ul>
-        <p><strong>Інструкція приготування:</strong></p>
-        <p style="white-space: pre-line; line-height: 1.6;">${recipe.steps}</p>
-    `;
-    modal.style.display = "block";
-}
-
-function startKitchenTimer(minutes) {
-    clearInterval(timerInterval);
-    let timeRemaining = minutes * 60;
-    const display = document.getElementById('countdownDisplay');
-    
-    function updateDisplay() {
-        const mins = Math.floor(timeRemaining / 60);
-        const secs = timeRemaining % 60;
-        display.textContent = `Залишилось: ${mins}:${secs < 10 ? '0' : ''}${secs}`;
-    }
-    
-    updateDisplay();
-    
-    timerInterval = setInterval(() => {
-        timeRemaining--;
-        if (timeRemaining <= 0) {
-            clearInterval(timerInterval);
-            display.textContent = "🎉 Час вийшов! Страва готова!";
-            display.style.color = "var(--primary-color)";
-            
-            const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            const oscillator = audioCtx.createOscillator();
-            oscillator.connect(audioCtx.destination);
-            oscillator.start();
-            setTimeout(() => oscillator.stop(), 800); 
-        } else {
-            updateDisplay();
-        }
-    }, 1000);
-}
-
-function stopKitchenTimer() {
-    clearInterval(timerInterval);
-    const display = document.getElementById('countdownDisplay');
-    if (display) {
-        display.textContent = "Таймер не запущено";
-        display.style.color = "#666";
-    }
-}
-
-searchInput.addEventListener('input', displayRecipes);
-
-closeModal.onclick = () => {
-    modal.style.display = "none";
-    clearInterval(timerInterval);
-}
-window.onclick = (e) => { 
-    if (e.target === modal) {
-        modal.style.display = "none";
-        clearInterval(timerInterval);
-    } 
-}
-
-displayRecipes(); 
