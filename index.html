@@ -16,7 +16,6 @@
             <button id="favFilterBtn" onclick="toggleFavoriteFilter()">⭐ Показати обране</button>
         </div>
 
-        <!-- Блок кнопок категорій страв -->
         <div class="categories-container">
             <button class="category-btn active" onclick="filterByCategory('all')">🥡 Усі</button>
             <button class="category-btn" onclick="filterByCategory('main')">🥩 Гаряче</button>
@@ -26,20 +25,16 @@
     </header>
 
     <main class="recipe-grid" id="recipeGrid">
-        <!-- Рецепти завантажуються динамічно через JavaScript -->
+        <!-- Рецепти завантажуються динамічно -->
     </main>
 
-    <!-- Модальне вікно для детального опису рецепту та таймера -->
-    <div id="recipeModal" class="modal">
+    <div id="recipeModal" class="modal" onclick="closeRecipeModal(event)">
         <div class="modal-content">
-            <span class="close-btn" id="closeModal">&times;</span>
+            <span class="close-btn" onclick="closeRecipeModal(event)">&times;</span>
             <div id="modalDetails"></div>
         </div>
     </div>
-
-    <!-- Аудіоелемент для сигналу таймера (використовує стандартний короткий звук) -->
-    <audio id="timerAlertSound" src="https://mixkit.co" preload="auto"></audio>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
