@@ -15,12 +15,21 @@
             <input type="text" id="searchInput" placeholder="Шукайте за назвою або інгредієнтом (напр., курка, рис)...">
             <button id="favFilterBtn" onclick="toggleFavoriteFilter()">⭐ Показати обране</button>
         </div>
+
+        <!-- Блок кнопок категорій страв -->
+        <div class="categories-container">
+            <button class="category-btn active" onclick="filterByCategory('all')">🥡 Усі</button>
+            <button class="category-btn" onclick="filterByCategory('main')">🥩 Гаряче</button>
+            <button class="category-btn" onclick="filterByCategory('soup')">🥣 Супи</button>
+            <button class="category-btn" onclick="filterByCategory('snack')">🥟 Закуски</button>
+        </div>
     </header>
 
     <main class="recipe-grid" id="recipeGrid">
-        <!-- Рецепти завантажуються динамічно -->
+        <!-- Рецепти завантажуються динамічно через JavaScript -->
     </main>
 
+    <!-- Модальне вікно для детального опису рецепту та таймера -->
     <div id="recipeModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" id="closeModal">&times;</span>
@@ -28,6 +37,9 @@
         </div>
     </div>
 
+    <!-- Аудіоелемент для сигналу таймера (використовує стандартний короткий звук) -->
+    <audio id="timerAlertSound" src="https://mixkit.co" preload="auto"></audio>
+
     <script src="script.js"></script>
 </body>
-</html> 
+</html>
